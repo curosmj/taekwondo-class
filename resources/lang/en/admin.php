@@ -212,5 +212,24 @@ return [
         ],
     ],
 
+    'schedule' => [
+        'title' => 'Schedule',
+
+        'actions' => [
+            'index' => 'Schedule',
+            'create' => 'New Schedule',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'day_of_week' => "Day of week",
+            'start_time' => "Start time",
+            'end_time' => "End time",
+            'batch_id' => "Batch",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

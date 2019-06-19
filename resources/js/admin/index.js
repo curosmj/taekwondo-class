@@ -11,3 +11,4 @@ import './invoice-item';
 import './rank';
 import './student-rank';
 import './batch';
+import './schedule';

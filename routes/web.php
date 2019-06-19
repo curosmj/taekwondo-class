@@ -134,3 +134,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/batches/{batch}',                       'Admin\BatchController@update')->name('admin/batches/update');
     Route::delete('/admin/batches/{batch}',                     'Admin\BatchController@destroy')->name('admin/batches/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/schedules',                              'Admin\ScheduleController@index');
+    Route::get('/admin/schedules/create',                       'Admin\ScheduleController@create');
+    Route::post('/admin/schedules',                             'Admin\ScheduleController@store');
+    Route::get('/admin/schedules/{schedule}/edit',              'Admin\ScheduleController@edit')->name('admin/schedules/edit');
+    Route::post('/admin/schedules/{schedule}',                  'Admin\ScheduleController@update')->name('admin/schedules/update');
+    Route::delete('/admin/schedules/{schedule}',                'Admin\ScheduleController@destroy')->name('admin/schedules/destroy');
+});

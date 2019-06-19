@@ -149,3 +149,17 @@ $factory->define(App\Models\Batch::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Schedule::class, function (Faker\Generator $faker) {
+    return [
+        'day_of_week' => $faker->sentence,
+        'start_time' => $faker->time(),
+        'end_time' => $faker->time(),
+        'batch_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+
