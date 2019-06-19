@@ -45,3 +45,17 @@ $factory->define(App\Models\Student::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'description' => $faker->sentence,
+        'cost_price' => $faker->randomFloat,
+        'selling_price' => $faker->randomFloat,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+

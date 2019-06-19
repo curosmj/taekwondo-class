@@ -68,5 +68,24 @@ return [
         ],
     ],
 
+    'product' => [
+        'title' => 'Product',
+
+        'actions' => [
+            'index' => 'Product',
+            'create' => 'New Product',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'name' => "Name",
+            'description' => "Description",
+            'cost_price' => "Cost price",
+            'selling_price' => "Selling price",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
