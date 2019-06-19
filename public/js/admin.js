@@ -110010,7 +110010,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./admin-user */ "./resources/js/admin/admin-user/index.js");
 /* harmony import */ var _profile_edit_profile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile-edit-profile */ "./resources/js/admin/profile-edit-profile/index.js");
 /* harmony import */ var _profile_edit_password__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profile-edit-password */ "./resources/js/admin/profile-edit-password/index.js");
+/* harmony import */ var _person__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./person */ "./resources/js/admin/person/index.js");
 
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/person/Form.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/person/Form.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('person-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        person_fname: '',
+        person_lname: '',
+        mobile_no: '',
+        email: ''
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/person/Listing.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/person/Listing.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('person-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/person/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/person/index.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/person/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/person/Form.js");
 
 
 

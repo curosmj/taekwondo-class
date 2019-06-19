@@ -16,4 +16,17 @@ $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Gen
         'updated_at' => $faker->dateTime,
         
     ];
+});/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Person::class, function (Faker\Generator $faker) {
+    return [
+        'person_fname' => $faker->sentence,
+        'person_lname' => $faker->sentence,
+        'mobile_no' => $faker->randomNumber(5),
+        'email' => $faker->email,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
 });
+

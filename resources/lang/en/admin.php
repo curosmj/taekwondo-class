@@ -29,5 +29,24 @@ return [
         ],
     ],
 
+    'person' => [
+        'title' => 'Person',
+
+        'actions' => [
+            'index' => 'Person',
+            'create' => 'New Person',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'person_fname' => "Person fname",
+            'person_lname' => "Person lname",
+            'mobile_no' => "Mobile no",
+            'email' => "Email",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

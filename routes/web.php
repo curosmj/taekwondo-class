@@ -34,3 +34,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::get('/admin/password',                               'Admin\ProfileController@editPassword');
     Route::post('/admin/password',                              'Admin\ProfileController@updatePassword');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/people',                                 'Admin\PersonController@index');
+    Route::get('/admin/people/create',                          'Admin\PersonController@create');
+    Route::post('/admin/people',                                'Admin\PersonController@store');
+    Route::get('/admin/people/{person}/edit',                   'Admin\PersonController@edit')->name('admin/people/edit');
+    Route::post('/admin/people/{person}',                       'Admin\PersonController@update')->name('admin/people/update');
+    Route::delete('/admin/people/{person}',                     'Admin\PersonController@destroy')->name('admin/people/destroy');
+});
