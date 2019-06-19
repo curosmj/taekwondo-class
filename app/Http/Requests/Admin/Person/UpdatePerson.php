@@ -28,7 +28,7 @@ class UpdatePerson extends FormRequest
             'person_lname' => ['sometimes', 'string'],
             'mobile_no' => ['sometimes', 'integer'],
             'email' => ['sometimes', 'email', 'string'],
-            
+            'person_gender' => ['sometimes', 'string', 'in:male,female']
         ];
     }
 }

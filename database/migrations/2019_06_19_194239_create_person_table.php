@@ -16,6 +16,7 @@ class CreatePersonTable extends Migration
         Schema::create('person', function (Blueprint $table) {
             $table->increments('id');
             $table->string('person_fname');
+            $table->enum('person_gender', ['male', 'female']);
             $table->string('person_lname');
             $table->unsignedInteger('mobile_no');
             $table->string('email');

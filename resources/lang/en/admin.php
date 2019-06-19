@@ -48,5 +48,25 @@ return [
         ],
     ],
 
+    'student' => [
+        'title' => 'Student',
+
+        'actions' => [
+            'index' => 'Student',
+            'create' => 'New Student',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'dob' => "Dob",
+            'address' => "Address",
+            'mother_id' => "Mother",
+            'father_id' => "Father",
+            'status' => "Status",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

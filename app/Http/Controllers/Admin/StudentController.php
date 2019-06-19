@@ -3,41 +3,41 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Requests\Admin\Person\IndexPerson;
-use App\Http\Requests\Admin\Person\StorePerson;
-use App\Http\Requests\Admin\Person\UpdatePerson;
-use App\Http\Requests\Admin\Person\DestroyPerson;
+use App\Http\Requests\Admin\Student\IndexStudent;
+use App\Http\Requests\Admin\Student\StoreStudent;
+use App\Http\Requests\Admin\Student\UpdateStudent;
+use App\Http\Requests\Admin\Student\DestroyStudent;
 use Brackets\AdminListing\Facades\AdminListing;
-use App\Models\Person;
+use App\Models\Student;
 
-class PersonController extends Controller
+class StudentController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param  IndexPerson $request
+     * @param  IndexStudent $request
      * @return Response|array
      */
-    public function index(IndexPerson $request)
+    public function index(IndexStudent $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Person::class)->processRequestAndGet(
+        $data = AdminListing::create(Student::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'person_fname', 'person_lname', 'person_gender', 'mobile_no', 'email'],
+            ['id', 'dob', 'address', 'mother_id', 'father_id', 'status'],
 
             // set columns to searchIn
-            ['id', 'person_fname', 'person_lname', 'person_gender', 'email']
+            ['id', 'address', 'status']
         );
 
         if ($request->ajax()) {
             return ['data' => $data];
         }
 
-        return view('admin.person.index', ['data' => $data]);
+        return view('admin.student.index', ['data' => $data]);
 
     }
 
@@ -49,42 +49,42 @@ class PersonController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.person.create');
+        $this->authorize('admin.student.create');
 
-        return view('admin.person.create');
+        return view('admin.student.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  StorePerson $request
+     * @param  StoreStudent $request
      * @return Response|array
      */
-    public function store(StorePerson $request)
+    public function store(StoreStudent $request)
     {
         // Sanitize input
         $sanitized = $request->validated();
 
-        // Store the Person
-        $person = Person::create($sanitized);
+        // Store the Student
+        $student = Student::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/people'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/students'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/people');
+        return redirect('admin/students');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  Person $person
+     * @param  Student $student
      * @return void
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function show(Person $person)
+    public function show(Student $student)
     {
-        $this->authorize('admin.person.show', $person);
+        $this->authorize('admin.student.show', $student);
 
         // TODO your code goes here
     }
@@ -92,52 +92,52 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Person $person
+     * @param  Student $student
      * @return Response
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function edit(Person $person)
+    public function edit(Student $student)
     {
-        $this->authorize('admin.person.edit', $person);
+        $this->authorize('admin.student.edit', $student);
 
-        return view('admin.person.edit', [
-            'person' => $person,
+        return view('admin.student.edit', [
+            'student' => $student,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdatePerson $request
-     * @param  Person $person
+     * @param  UpdateStudent $request
+     * @param  Student $student
      * @return Response|array
      */
-    public function update(UpdatePerson $request, Person $person)
+    public function update(UpdateStudent $request, Student $student)
     {
         // Sanitize input
         $sanitized = $request->validated();
 
-        // Update changed values Person
-        $person->update($sanitized);
+        // Update changed values Student
+        $student->update($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/people'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/students'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/people');
+        return redirect('admin/students');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  DestroyPerson $request
-     * @param  Person $person
+     * @param  DestroyStudent $request
+     * @param  Student $student
      * @return Response|bool
      * @throws \Exception
      */
-    public function destroy(DestroyPerson $request, Person $person)
+    public function destroy(DestroyStudent $request, Student $student)
     {
-        $person->delete();
+        $student->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);

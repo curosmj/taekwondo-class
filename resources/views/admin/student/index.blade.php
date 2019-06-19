@@ -1,20 +1,21 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.person.actions.index'))
+@section('title', trans('admin.student.actions.index'))
 
 @section('body')
 
-    <person-listing
+<?php $data->load('mother', 'father'); ?>
+    <student-listing
         :data="{{ $data->toJson() }}"
-        :url="'{{ url('admin/people') }}'"
+        :url="'{{ url('admin/students') }}'"
         inline-template>
 
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> {{ trans('admin.person.actions.index') }}
-                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/people/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.person.actions.create') }}</a>
+                        <i class="fa fa-align-justify"></i> {{ trans('admin.student.actions.index') }}
+                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/students/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.student.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
                         <form @submit.prevent="">
@@ -43,12 +44,12 @@
                         <table class="table table-hover table-listing">
                             <thead>
                                 <tr>
-                                    <th is='sortable' :column="'id'">{{ trans('admin.person.columns.id') }}</th>
-                                    <th is='sortable' :column="'person_fname'">First Name</th>
-                                    <th is='sortable' :column="'person_lname'">Last Name</th>
-                                    <th is='sortable' :column="'person_gender'">Gender</th>
-                                    <th is='sortable' :column="'mobile_no'">{{ trans('admin.person.columns.mobile_no') }}</th>
-                                    <th is='sortable' :column="'email'">{{ trans('admin.person.columns.email') }}</th>
+                                    <th is='sortable' :column="'id'">{{ trans('admin.student.columns.id') }}</th>
+                                    <th is='sortable' :column="'dob'">{{ trans('admin.student.columns.dob') }}</th>
+                                    <th is='sortable' :column="'address'">{{ trans('admin.student.columns.address') }}</th>
+                                    <th is='sortable' :column="'mother_id'">{{ trans('admin.student.columns.mother_id') }}</th>
+                                    <th is='sortable' :column="'father_id'">{{ trans('admin.student.columns.father_id') }}</th>
+                                    <th is='sortable' :column="'status'">{{ trans('admin.student.columns.status') }}</th>
                                     
                                     <th></th>
                                 </tr>
@@ -56,11 +57,11 @@
                             <tbody>
                                 <tr v-for="(item, index) in collection">
                                     <td>@{{ item.id }}</td>
-                                    <td>@{{ item.person_fname }}</td>
-                                    <td>@{{ item.person_lname }}</td>
-                                    <td>@{{ item.person_gender }}</td>
-                                    <td>@{{ item.mobile_no }}</td>
-                                    <td>@{{ item.email }}</td>
+                                    <td>@{{ item.dob | date }}</td>
+                                    <td>@{{ item.address }}</td>
+                                    <td>@{{ item.mother != null ? (item.mother.person_fname + ' ' + item.mother.person_lname) : '' }}</td>
+                                    <td>@{{ item.father != null ? (item.father.person_fname + ' ' + item.father.person_lname) : ''  }}</td>
+                                    <td>@{{ item.status }}</td>
                                     
                                     <td>
                                         <div class="row no-gutters">
@@ -89,12 +90,12 @@
 		                    <i class="icon-magnifier"></i>
 		                    <h3>{{ trans('brackets/admin-ui::admin.index.no_items') }}</h3>
 		                    <p>{{ trans('brackets/admin-ui::admin.index.try_changing_items') }}</p>
-                            <a class="btn btn-primary btn-spinner" href="{{ url('admin/people/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.person.actions.create') }}</a>
+                            <a class="btn btn-primary btn-spinner" href="{{ url('admin/students/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.student.actions.create') }}</a>
 	                    </div>
                     </div>
                 </div>
             </div>
         </div>
-    </person-listing>
+    </student-listing>
 
 @endsection

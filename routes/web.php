@@ -44,3 +44,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/people/{person}',                       'Admin\PersonController@update')->name('admin/people/update');
     Route::delete('/admin/people/{person}',                     'Admin\PersonController@destroy')->name('admin/people/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/students',                               'Admin\StudentController@index');
+    Route::get('/admin/students/create',                        'Admin\StudentController@create');
+    Route::post('/admin/students',                              'Admin\StudentController@store');
+    Route::get('/admin/students/{student}/edit',                'Admin\StudentController@edit')->name('admin/students/edit');
+    Route::post('/admin/students/{student}',                    'Admin\StudentController@update')->name('admin/students/update');
+    Route::delete('/admin/students/{student}',                  'Admin\StudentController@destroy')->name('admin/students/destroy');
+});
