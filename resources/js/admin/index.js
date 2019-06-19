@@ -6,3 +6,4 @@ import './student';
 import './product';
 import './inventory';
 import './service';
+import './invoice';

@@ -123,5 +123,22 @@ return [
         ],
     ],
 
+    'invoice' => [
+        'title' => 'Invoice',
+
+        'actions' => [
+            'index' => 'Invoice',
+            'create' => 'New Invoice',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'amount' => "Amount",
+            'person_id' => "Person",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
