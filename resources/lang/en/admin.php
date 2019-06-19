@@ -159,5 +159,23 @@ return [
         ],
     ],
 
+    'rank' => [
+        'title' => 'Rank',
+
+        'actions' => [
+            'index' => 'Rank',
+            'create' => 'New Rank',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'rank_name' => "Rank name",
+            'rank_description' => "Rank description",
+            'rank_order' => "Rank order",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

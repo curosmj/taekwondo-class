@@ -111,3 +111,16 @@ $factory->define(App\Models\InvoiceItem::class, function (Faker\Generator $faker
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Rank::class, function (Faker\Generator $faker) {
+    return [
+        'rank_name' => $faker->sentence,
+        'rank_description' => $faker->sentence,
+        'rank_order' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+

@@ -8,3 +8,4 @@ import './inventory';
 import './service';
 import './invoice';
 import './invoice-item';
+import './rank';

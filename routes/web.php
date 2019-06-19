@@ -104,3 +104,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/invoice-items/{invoiceItem}',           'Admin\InvoiceItemController@update')->name('admin/invoice-items/update');
     Route::delete('/admin/invoice-items/{invoiceItem}',         'Admin\InvoiceItemController@destroy')->name('admin/invoice-items/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/ranks',                                  'Admin\RankController@index');
+    Route::get('/admin/ranks/create',                           'Admin\RankController@create');
+    Route::post('/admin/ranks',                                 'Admin\RankController@store');
+    Route::get('/admin/ranks/{rank}/edit',                      'Admin\RankController@edit')->name('admin/ranks/edit');
+    Route::post('/admin/ranks/{rank}',                          'Admin\RankController@update')->name('admin/ranks/update');
+    Route::delete('/admin/ranks/{rank}',                        'Admin\RankController@destroy')->name('admin/ranks/destroy');
+});
