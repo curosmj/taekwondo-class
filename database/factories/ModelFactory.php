@@ -71,3 +71,17 @@ $factory->define(App\Models\Inventory::class, function (Faker\Generator $faker) 
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Service::class, function (Faker\Generator $faker) {
+    return [
+        'service_name' => $faker->sentence,
+        'service_description' => $faker->sentence,
+        'service_selling_price' => $faker->randomFloat,
+        'service_num_days' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+

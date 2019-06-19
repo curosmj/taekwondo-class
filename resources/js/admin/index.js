@@ -5,3 +5,4 @@ import './person';
 import './student';
 import './product';
 import './inventory';
+import './service';

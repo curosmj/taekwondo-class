@@ -74,3 +74,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/inventories/{inventory}',               'Admin\InventoryController@update')->name('admin/inventories/update');
     Route::delete('/admin/inventories/{inventory}',             'Admin\InventoryController@destroy')->name('admin/inventories/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/services',                               'Admin\ServiceController@index');
+    Route::get('/admin/services/create',                        'Admin\ServiceController@create');
+    Route::post('/admin/services',                              'Admin\ServiceController@store');
+    Route::get('/admin/services/{service}/edit',                'Admin\ServiceController@edit')->name('admin/services/edit');
+    Route::post('/admin/services/{service}',                    'Admin\ServiceController@update')->name('admin/services/update');
+    Route::delete('/admin/services/{service}',                  'Admin\ServiceController@destroy')->name('admin/services/destroy');
+});

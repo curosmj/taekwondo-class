@@ -104,5 +104,24 @@ return [
         ],
     ],
 
+    'service' => [
+        'title' => 'Service',
+
+        'actions' => [
+            'index' => 'Service',
+            'create' => 'New Service',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'service_name' => "Service name",
+            'service_description' => "Service description",
+            'service_selling_price' => "Service selling price",
+            'service_num_days' => "Service num days",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
