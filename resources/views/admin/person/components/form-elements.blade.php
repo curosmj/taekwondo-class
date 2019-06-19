@@ -25,6 +25,12 @@
     </div>
 </div>
 
+@component('input-element', ['field' => 'address', 'label' => 'Address'])
+@endcomponent
+
+@component('input-element', ['field' => 'postal_code', 'label' => 'Postcode'])
+@endcomponent
+
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('mobile_no'), 'has-success': this.fields.mobile_no && this.fields.mobile_no.valid }">
     <label for="mobile_no" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.person.columns.mobile_no') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">

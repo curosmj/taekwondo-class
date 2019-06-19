@@ -28,7 +28,9 @@ class StorePerson extends FormRequest
             'person_lname' => ['required', 'string'],
             'mobile_no' => ['required', 'integer'],
             'email' => ['required', 'email', 'string'],
-            'person_gender' => ['sometimes', 'string', 'in:male,female']            
+            'person_gender' => ['sometimes', 'string', 'in:male,female'],
+            'address' => ['required', 'string'],
+            'postal_code' => ['required', 'string'],
         ];
     }
 }

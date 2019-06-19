@@ -27,10 +27,10 @@ class StudentController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'dob', 'address', 'mother_id', 'father_id', 'status'],
+            ['id', 'dob', 'person_id', 'mother_id', 'father_id', 'status'],
 
             // set columns to searchIn
-            ['id', 'address', 'status']
+            ['id', 'status']
         );
 
         if ($request->ajax()) {

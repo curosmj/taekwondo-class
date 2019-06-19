@@ -9,13 +9,10 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('address'), 'has-success': this.fields.address && this.fields.address.valid }">
-    <label for="address" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.student.columns.address') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.address" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('address'), 'form-control-success': this.fields.address && this.fields.address.valid}" id="address" name="address" placeholder="{{ trans('admin.student.columns.address') }}">
-        <div v-if="errors.has('address')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('address') }}</div>
-    </div>
-</div>
+@component('select-element', ['field' => 'person_id', 'label' => 'Person Record'])
+<option v-bind:value="null">None</option>
+<option v-for="p in persons" v-bind:key="p.id" v-bind:value="p.id">@{{p.person_fname}} @{{p.person_lname}} - @{{p.email}}</option>
+@endcomponent
 
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('mother_id'), 'has-success': this.fields.mother_id && this.fields.mother_id.valid }">
     <label for="mother_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.student.columns.mother_id') }}</label>

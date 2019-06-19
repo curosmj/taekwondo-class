@@ -25,7 +25,7 @@ class UpdateStudent extends FormRequest
     {
         return [
             'dob' => ['sometimes', 'date'],
-            'address' => ['sometimes', 'string'],
+            'person_id' => ['nullable', 'integer'],
             'mother_id' => ['nullable', 'integer'],
             'father_id' => ['nullable', 'integer'],
             'status' => ['sometimes', 'string'],

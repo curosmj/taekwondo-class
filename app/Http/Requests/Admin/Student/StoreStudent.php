@@ -25,7 +25,7 @@ class StoreStudent extends FormRequest
     {
         return [
             'dob' => ['required', 'date'],
-            'address' => ['required', 'string'],
+            'person_id' => ['nullable', 'integer'],
             'mother_id' => ['nullable', 'integer'],
             'father_id' => ['nullable', 'integer'],
             'status' => ['required', 'string'],

@@ -8,7 +8,7 @@ class Student extends Model
     
     protected $fillable = [
         "dob",
-        "address",
+        "person_id",
         "mother_id",
         "father_id",
         "status",
@@ -36,6 +36,10 @@ class Student extends Model
         return url('/admin/students/'.$this->getKey());
     }
  
+    public function person() {
+        return $this->belongsTo(Person::class, 'person_id');
+    }
+
     public function mother() {
         return $this->belongsTo(Person::class, 'mother_id');
     }

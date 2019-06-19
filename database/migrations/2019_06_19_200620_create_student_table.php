@@ -16,9 +16,10 @@ class CreateStudentTable extends Migration
         Schema::create('student', function (Blueprint $table) {
             $table->increments('id');
             $table->date('dob');
-            $table->string('address');
+            $table->unsignedInteger('person_id')->nullable();
             $table->unsignedInteger('mother_id')->nullable();
             $table->unsignedInteger('father_id')->nullable();
+            $table->foreign('person_id')->references('id')->on('person');
             $table->foreign('mother_id')->references('id')->on('person');
             $table->foreign('father_id')->references('id')->on('person');
             $table->string('status');

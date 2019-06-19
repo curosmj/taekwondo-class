@@ -27,10 +27,10 @@ class PersonController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'person_fname', 'person_lname', 'person_gender', 'mobile_no', 'email'],
+            ['*'],
 
             // set columns to searchIn
-            ['id', 'person_fname', 'person_lname', 'person_gender', 'email']
+            ['id', 'person_fname', 'person_lname', 'address', 'postal_code', 'person_gender', 'email']
         );
 
         if ($request->ajax()) {

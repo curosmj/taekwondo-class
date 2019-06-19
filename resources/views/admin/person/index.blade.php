@@ -47,6 +47,8 @@
                                     <th is='sortable' :column="'person_fname'">First Name</th>
                                     <th is='sortable' :column="'person_lname'">Last Name</th>
                                     <th is='sortable' :column="'person_gender'">Gender</th>
+                                    <th is='sortable' :column="'address'">Address</th>
+                                    <th is='sortable' :column="'postcode'">Postcode</th>
                                     <th is='sortable' :column="'mobile_no'">{{ trans('admin.person.columns.mobile_no') }}</th>
                                     <th is='sortable' :column="'email'">{{ trans('admin.person.columns.email') }}</th>
                                     
@@ -59,6 +61,8 @@
                                     <td>@{{ item.person_fname }}</td>
                                     <td>@{{ item.person_lname }}</td>
                                     <td>@{{ item.person_gender }}</td>
+                                    <td>@{{ item.address }}</td>
+                                    <td>@{{ item.postal_code }}</td>
                                     <td>@{{ item.mobile_no }}</td>
                                     <td>@{{ item.email }}</td>
                                     

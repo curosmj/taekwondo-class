@@ -4,7 +4,7 @@
 
 @section('body')
 
-<?php $data->load('mother', 'father'); ?>
+<?php $data->load('person', 'mother', 'father'); ?>
     <student-listing
         :data="{{ $data->toJson() }}"
         :url="'{{ url('admin/students') }}'"
@@ -46,9 +46,9 @@
                                 <tr>
                                     <th is='sortable' :column="'id'">{{ trans('admin.student.columns.id') }}</th>
                                     <th is='sortable' :column="'dob'">{{ trans('admin.student.columns.dob') }}</th>
-                                    <th is='sortable' :column="'address'">{{ trans('admin.student.columns.address') }}</th>
-                                    <th is='sortable' :column="'mother_id'">{{ trans('admin.student.columns.mother_id') }}</th>
-                                    <th is='sortable' :column="'father_id'">{{ trans('admin.student.columns.father_id') }}</th>
+                                    <th is='sortable' :column="'person_id'">Name</th>
+                                    <th is='sortable' :column="'mother_id'">Mother Name</th>
+                                    <th is='sortable' :column="'father_id'">Father Name</th>
                                     <th is='sortable' :column="'status'">{{ trans('admin.student.columns.status') }}</th>
                                     
                                     <th></th>
@@ -58,7 +58,7 @@
                                 <tr v-for="(item, index) in collection">
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.dob | date }}</td>
-                                    <td>@{{ item.address }}</td>
+                                    <td>@{{ item.person != null ? (item.person.person_fname + ' ' + item.person.person_lname) : '' }}</td>
                                     <td>@{{ item.mother != null ? (item.mother.person_fname + ' ' + item.mother.person_lname) : '' }}</td>
                                     <td>@{{ item.father != null ? (item.father.person_fname + ' ' + item.father.person_lname) : ''  }}</td>
                                     <td>@{{ item.status }}</td>

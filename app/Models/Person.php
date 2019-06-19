@@ -12,6 +12,8 @@ class Person extends Model
         "person_gender",
         "mobile_no",
         "email",
+        "address",
+        "postal_code"
     
     ];
     
