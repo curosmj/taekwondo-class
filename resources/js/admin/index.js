@@ -9,3 +9,4 @@ import './service';
 import './invoice';
 import './invoice-item';
 import './rank';
+import './student-rank';

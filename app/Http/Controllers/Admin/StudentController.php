@@ -34,6 +34,7 @@ class StudentController extends Controller
         );
 
         if ($request->ajax()) {
+            $data->load('person');
             return ['data' => $data];
         }
 

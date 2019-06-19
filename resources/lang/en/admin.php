@@ -177,5 +177,23 @@ return [
         ],
     ],
 
+    'student-rank' => [
+        'title' => 'Student Rank',
+
+        'actions' => [
+            'index' => 'Student Rank',
+            'create' => 'New Student Rank',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'rank_id' => "Rank",
+            'student_id' => "Student",
+            'awarded_date' => "Awarded date",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

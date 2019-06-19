@@ -114,3 +114,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/ranks/{rank}',                          'Admin\RankController@update')->name('admin/ranks/update');
     Route::delete('/admin/ranks/{rank}',                        'Admin\RankController@destroy')->name('admin/ranks/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/student-ranks',                          'Admin\StudentRankController@index');
+    Route::get('/admin/student-ranks/create',                   'Admin\StudentRankController@create');
+    Route::post('/admin/student-ranks',                         'Admin\StudentRankController@store');
+    Route::get('/admin/student-ranks/{studentRank}/edit',       'Admin\StudentRankController@edit')->name('admin/student-ranks/edit');
+    Route::post('/admin/student-ranks/{studentRank}',           'Admin\StudentRankController@update')->name('admin/student-ranks/update');
+    Route::delete('/admin/student-ranks/{studentRank}',         'Admin\StudentRankController@destroy')->name('admin/student-ranks/destroy');
+});

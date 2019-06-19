@@ -124,3 +124,16 @@ $factory->define(App\Models\Rank::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\StudentRank::class, function (Faker\Generator $faker) {
+    return [
+        'rank_id' => $faker->randomNumber(5),
+        'student_id' => $faker->randomNumber(5),
+        'awarded_date' => $faker->date(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+
