@@ -195,5 +195,22 @@ return [
         ],
     ],
 
+    'batch' => [
+        'title' => 'Batch',
+
+        'actions' => [
+            'index' => 'Batch',
+            'create' => 'New Batch',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'batch_name' => "Batch name",
+            'batch_rank_id' => "Batch rank",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

@@ -124,3 +124,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/student-ranks/{studentRank}',           'Admin\StudentRankController@update')->name('admin/student-ranks/update');
     Route::delete('/admin/student-ranks/{studentRank}',         'Admin\StudentRankController@destroy')->name('admin/student-ranks/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/batches',                                'Admin\BatchController@index');
+    Route::get('/admin/batches/create',                         'Admin\BatchController@create');
+    Route::post('/admin/batches',                               'Admin\BatchController@store');
+    Route::get('/admin/batches/{batch}/edit',                   'Admin\BatchController@edit')->name('admin/batches/edit');
+    Route::post('/admin/batches/{batch}',                       'Admin\BatchController@update')->name('admin/batches/update');
+    Route::delete('/admin/batches/{batch}',                     'Admin\BatchController@destroy')->name('admin/batches/destroy');
+});

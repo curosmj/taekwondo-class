@@ -137,3 +137,15 @@ $factory->define(App\Models\StudentRank::class, function (Faker\Generator $faker
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Batch::class, function (Faker\Generator $faker) {
+    return [
+        'batch_name' => $faker->sentence,
+        'batch_rank_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+
