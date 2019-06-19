@@ -59,3 +59,15 @@ $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Inventory::class, function (Faker\Generator $faker) {
+    return [
+        'product_id' => $faker->randomNumber(5),
+        'inventory_quantity' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+

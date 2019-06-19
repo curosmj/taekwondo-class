@@ -1,20 +1,21 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.product.actions.index'))
+@section('title', trans('admin.inventory.actions.index'))
 
 @section('body')
 
-    <product-listing
+<?php $data->load('product') ?>
+    <inventory-listing
         :data="{{ $data->toJson() }}"
-        :url="'{{ url('admin/products') }}'"
+        :url="'{{ url('admin/inventories') }}'"
         inline-template>
 
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> {{ trans('admin.product.actions.index') }}
-                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/products/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.product.actions.create') }}</a>
+                        <i class="fa fa-align-justify"></i> {{ trans('admin.inventory.actions.index') }}
+                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/inventories/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.inventory.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
                         <form @submit.prevent="">
@@ -43,12 +44,9 @@
                         <table class="table table-hover table-listing">
                             <thead>
                                 <tr>
-                                    <th is='sortable' :column="'id'">{{ trans('admin.product.columns.id') }}</th>
-                                    <th is='sortable' :column="'name'">{{ trans('admin.product.columns.name') }}</th>
-                                    <th is='sortable' :column="'description'">{{ trans('admin.product.columns.description') }}</th>
-                                    <th is='sortable' :column="'cost_price'">{{ trans('admin.product.columns.cost_price') }}</th>
-                                    <th is='sortable' :column="'selling_price'">{{ trans('admin.product.columns.selling_price') }}</th>
-                                    <th>Remaining Stock</th>
+                                    <th is='sortable' :column="'id'">{{ trans('admin.inventory.columns.id') }}</th>
+                                    <th is='sortable' :column="'product_id'">{{ trans('admin.inventory.columns.product_id') }}</th>
+                                    <th is='sortable' :column="'inventory_quantity'">{{ trans('admin.inventory.columns.inventory_quantity') }}</th>
                                     
                                     <th></th>
                                 </tr>
@@ -56,11 +54,8 @@
                             <tbody>
                                 <tr v-for="(item, index) in collection">
                                     <td>@{{ item.id }}</td>
-                                    <td>@{{ item.name }}</td>
-                                    <td>@{{ item.description }}</td>
-                                    <td>@{{ item.cost_price }}</td>
-                                    <td>@{{ item.selling_price }}</td>
-                                    <td>@{{ item.remaining_stock }}</td>
+                                    <td>@{{ item.product.name }}</td>
+                                    <td>@{{ item.inventory_quantity }}</td>
                                     
                                     <td>
                                         <div class="row no-gutters">
@@ -89,12 +84,12 @@
 		                    <i class="icon-magnifier"></i>
 		                    <h3>{{ trans('brackets/admin-ui::admin.index.no_items') }}</h3>
 		                    <p>{{ trans('brackets/admin-ui::admin.index.try_changing_items') }}</p>
-                            <a class="btn btn-primary btn-spinner" href="{{ url('admin/products/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.product.actions.create') }}</a>
+                            <a class="btn btn-primary btn-spinner" href="{{ url('admin/inventories/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.inventory.actions.create') }}</a>
 	                    </div>
                     </div>
                 </div>
             </div>
         </div>
-    </product-listing>
+    </inventory-listing>
 
 @endsection

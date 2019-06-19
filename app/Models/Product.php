@@ -26,7 +26,7 @@ class Product extends Model
     
     
     
-    protected $appends = ['resource_url'];
+    protected $appends = ['resource_url', 'remaining_stock'];
 
     /* ************************ ACCESSOR ************************* */
 
@@ -34,5 +34,12 @@ class Product extends Model
         return url('/admin/products/'.$this->getKey());
     }
 
-    
+    public function inventories() {
+        return $this->hasMany(Inventory::class, 'product_id');
+    }
+
+    public function getRemainingStockAttribute() {
+        $in = $this->inventories->sum('inventory_quantity');
+        return $in;
+    }
 }

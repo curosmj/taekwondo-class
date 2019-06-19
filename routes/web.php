@@ -64,3 +64,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/products/{product}',                    'Admin\ProductController@update')->name('admin/products/update');
     Route::delete('/admin/products/{product}',                  'Admin\ProductController@destroy')->name('admin/products/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/inventories',                            'Admin\InventoryController@index');
+    Route::get('/admin/inventories/create',                     'Admin\InventoryController@create');
+    Route::post('/admin/inventories',                           'Admin\InventoryController@store');
+    Route::get('/admin/inventories/{inventory}/edit',           'Admin\InventoryController@edit')->name('admin/inventories/edit');
+    Route::post('/admin/inventories/{inventory}',               'Admin\InventoryController@update')->name('admin/inventories/update');
+    Route::delete('/admin/inventories/{inventory}',             'Admin\InventoryController@destroy')->name('admin/inventories/destroy');
+});

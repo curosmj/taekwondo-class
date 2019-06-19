@@ -87,5 +87,22 @@ return [
         ],
     ],
 
+    'inventory' => [
+        'title' => 'Inventory',
+
+        'actions' => [
+            'index' => 'Inventory',
+            'create' => 'New Inventory',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'product_id' => "Product",
+            'inventory_quantity' => "Inventory quantity",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
