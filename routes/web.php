@@ -94,3 +94,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/invoices/{invoice}',                    'Admin\InvoiceController@update')->name('admin/invoices/update');
     Route::delete('/admin/invoices/{invoice}',                  'Admin\InvoiceController@destroy')->name('admin/invoices/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/invoice-items',                          'Admin\InvoiceItemController@index');
+    Route::get('/admin/invoice-items/create',                   'Admin\InvoiceItemController@create');
+    Route::post('/admin/invoice-items',                         'Admin\InvoiceItemController@store');
+    Route::get('/admin/invoice-items/{invoiceItem}/edit',       'Admin\InvoiceItemController@edit')->name('admin/invoice-items/edit');
+    Route::post('/admin/invoice-items/{invoiceItem}',           'Admin\InvoiceItemController@update')->name('admin/invoice-items/update');
+    Route::delete('/admin/invoice-items/{invoiceItem}',         'Admin\InvoiceItemController@destroy')->name('admin/invoice-items/destroy');
+});

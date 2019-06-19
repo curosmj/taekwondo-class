@@ -140,5 +140,24 @@ return [
         ],
     ],
 
+    'invoice-item' => [
+        'title' => 'Invoice Item',
+
+        'actions' => [
+            'index' => 'Invoice Item',
+            'create' => 'New Invoice Item',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'product_id' => "Product",
+            'invoice_id' => "Invoice",
+            'service_id' => "Service",
+            'quantity' => "Quantity",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

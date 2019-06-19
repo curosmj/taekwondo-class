@@ -97,3 +97,17 @@ $factory->define(App\Models\Invoice::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\InvoiceItem::class, function (Faker\Generator $faker) {
+    return [
+        'product_id' => $faker->randomNumber(5),
+        'invoice_id' => $faker->randomNumber(5),
+        'service_id' => $faker->randomNumber(5),
+        'quantity' => $faker->randomFloat,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+
