@@ -163,3 +163,16 @@ $factory->define(App\Models\Schedule::class, function (Faker\Generator $faker) {
     ];
 });
 
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Attendance::class, function (Faker\Generator $faker) {
+    return [
+        'batch_id' => $faker->randomNumber(5),
+        'student_id' => $faker->randomNumber(5),
+        'comment' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
+

@@ -144,3 +144,13 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::post('/admin/schedules/{schedule}',                  'Admin\ScheduleController@update')->name('admin/schedules/update');
     Route::delete('/admin/schedules/{schedule}',                'Admin\ScheduleController@destroy')->name('admin/schedules/destroy');
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/attendances',                            'Admin\AttendanceController@index');
+    Route::get('/admin/attendances/create',                     'Admin\AttendanceController@create');
+    Route::post('/admin/attendances',                           'Admin\AttendanceController@store');
+    Route::get('/admin/attendances/{attendance}/edit',          'Admin\AttendanceController@edit')->name('admin/attendances/edit');
+    Route::post('/admin/attendances/{attendance}',              'Admin\AttendanceController@update')->name('admin/attendances/update');
+    Route::delete('/admin/attendances/{attendance}',            'Admin\AttendanceController@destroy')->name('admin/attendances/destroy');
+});

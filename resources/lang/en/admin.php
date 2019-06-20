@@ -231,5 +231,23 @@ return [
         ],
     ],
 
+    'attendance' => [
+        'title' => 'Attendance',
+
+        'actions' => [
+            'index' => 'Attendance',
+            'create' => 'New Attendance',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => "ID",
+            'batch_id' => "Batch",
+            'student_id' => "Student",
+            'comment' => "Comment",
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

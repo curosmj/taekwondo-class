@@ -28,8 +28,7 @@ class Person extends Model
     ];
     
     
-    
-    protected $appends = ['resource_url'];
+    protected $appends = ['resource_url', 'full_name'];
 
     /* ************************ ACCESSOR ************************* */
 
@@ -37,5 +36,8 @@ class Person extends Model
         return url('/admin/people/'.$this->getKey());
     }
 
+    public function getFullNameAttribute() {
+        return "{$this->person_fname} {$this->person_lname}";
+    }
     
 }
