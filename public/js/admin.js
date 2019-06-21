@@ -110944,6 +110944,149 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/forms/invoice.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/forms/invoice.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+Vue.component('forms-invoice', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  mounted: function () {
+    var _mounted = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios.get('/admin/products?perPage=100');
+
+            case 2:
+              this.products = _context.sent.data.data.data;
+              _context.next = 5;
+              return axios.get('/admin/services?perPage=100');
+
+            case 5:
+              this.services = _context.sent.data.data.data;
+              _context.next = 8;
+              return axios.get('/admin/people?perPage=100');
+
+            case 8:
+              this.persons = _context.sent.data.data.data;
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function mounted() {
+      return _mounted.apply(this, arguments);
+    }
+
+    return mounted;
+  }(),
+  data: function data() {
+    return {
+      products: [],
+      persons: [],
+      services: [],
+      newQuantity: 1,
+      items: [],
+      form: {
+        person_id: null,
+        newProduct: null,
+        newService: null
+      },
+      submiting: false
+    };
+  },
+  methods: {
+    nothing: function nothing() {},
+    create: function () {
+      var _create = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios.post('/admin/forms/invoice', {
+                  items: this.items,
+                  person_id: this.form.person_id
+                });
+
+              case 2:
+                this.$notify('Invoice created!');
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function create() {
+        return _create.apply(this, arguments);
+      }
+
+      return create;
+    }(),
+    del: function del(index) {
+      this.items.splice(index, 1);
+    },
+    addProduct: function addProduct() {
+      var p = _.clone(this.form.newProduct);
+
+      p.quantity = this.newQuantity;
+      p.type = 'product';
+      this.items.push(p);
+      this.newQuantity = 1;
+      this.form.newProduct = null;
+    },
+    addService: function addService() {
+      var p = _.clone(this.form.newService);
+
+      p.quantity = this.newQuantity;
+      p.type = 'service';
+      this.items.push(p);
+      this.newQuantity = 1;
+      this.form.newService = null;
+    }
+  },
+  computed: {
+    total: function total() {
+      return _.sumBy(this.items, function (i) {
+        return i.quantity * (i.selling_price || i.service_selling_price);
+      }).toFixed(2);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/admin/forms/student.js":
 /*!*********************************************!*\
   !*** ./resources/js/admin/forms/student.js ***!
@@ -111059,6 +111202,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _schedule__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./schedule */ "./resources/js/admin/schedule/index.js");
 /* harmony import */ var _attendance__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./attendance */ "./resources/js/admin/attendance/index.js");
 /* harmony import */ var _forms_student__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./forms/student */ "./resources/js/admin/forms/student.js");
+/* harmony import */ var _forms_invoice__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./forms/invoice */ "./resources/js/admin/forms/invoice.js");
+
 
 
 

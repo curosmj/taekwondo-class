@@ -14,3 +14,4 @@ import './batch';
 import './schedule';
 import './attendance';
 import './forms/student';
+import './forms/invoice';

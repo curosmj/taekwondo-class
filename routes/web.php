@@ -33,6 +33,11 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         return view('forms.student');
     });
     Route::post('/admin/forms/student', 'Admin\FormsController@student');
+    
+    Route::get('/admin/forms/invoice', function () {
+        return view('forms.invoice');
+    });
+    Route::post('/admin/forms/invoice', 'Admin\FormsController@invoice');
 });
 
 /* Auto-generated profile routes */

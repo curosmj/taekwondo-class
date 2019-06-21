@@ -6,6 +6,8 @@ use Illuminate\Http\Response;
 use App\Models\Person;
 use App\Models\Student;
 use App\Models\StudentRank;
+use App\Models\Invoice;
+use App\Models\InvoiceItem;
 
 class FormsController extends Controller
 {
@@ -125,5 +127,42 @@ class FormsController extends Controller
 
 
     return 'done';
+  }
+
+  public function invoice(Request $request)
+  {
+    $items = $request->get('items', []);
+    $person = $request->get('person_id');
+
+    $invoice = Invoice::create([
+      'person_id' => $person,
+      'amount' => 0,
+    ]);
+
+    $total = 0;
+    foreach ($items as $item) {
+      $data = [
+        'invoice_id' => $invoice->id,
+        'quantity' => $item['quantity']
+      ];
+
+
+      if ($item['type'] == 'service') {
+        $data['service_id'] = $item['id'];
+        $total += $item['quantity'] * $item['service_selling_price'];
+      } else {
+        $data['product_id'] = $item['id'];
+        $total += $item['quantity'] * $item['selling_price'];
+      }
+
+      InvoiceItem::create($data);
+    }
+
+    $invoice->amount = $total;
+    $invoice->save();
+
+    echo $total;
+
+    return 'ok';
   }
 }

@@ -3,6 +3,7 @@
         <ul class="nav">
             <li class="nav-title">Forms</li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/forms/student') }}"><i class="nav-icon icon-graduation"></i> Student Registration</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/forms/invoice') }}"><i class="nav-icon icon-open"></i> New Invoice </a></li>
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.content') }}</li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/people') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.person.title') }}</a></li>
