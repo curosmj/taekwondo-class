@@ -1,6 +1,9 @@
 <div class="sidebar">
     <nav class="sidebar-nav">
         <ul class="nav">
+            <li class="nav-title">Forms</li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/forms/student') }}"><i class="nav-icon icon-graduation"></i> Student Registration</a></li>
+
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.content') }}</li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/people') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.person.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/students') }}"><i class="nav-icon icon-graduation"></i> {{ trans('admin.student.title') }}</a></li>

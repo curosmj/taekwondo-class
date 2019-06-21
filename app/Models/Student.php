@@ -28,12 +28,16 @@ class Student extends Model
     
     
     
-    protected $appends = ['resource_url'];
+    protected $appends = ['resource_url', 'full_name'];
 
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute() {
         return url('/admin/students/'.$this->getKey());
+    }
+
+    public function getFullNameAttribute() {
+        return $this->person->full_name ?? '';
     }
  
     public function person() {

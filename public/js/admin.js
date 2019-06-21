@@ -110944,6 +110944,96 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/forms/student.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/forms/student.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+Vue.component('forms-student', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  mounted: function () {
+    var _mounted = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios.get('/admin/people?perPage=100');
+
+            case 2:
+              this.persons = _context.sent.data.data.data;
+              _context.next = 5;
+              return axios.get('/admin/ranks?perPage=100');
+
+            case 5:
+              this.ranks = _context.sent.data.data.data;
+              this.form.rank_id = _.find(this.ranks, {
+                rank_order: 1
+              }).id;
+              this.form.awarded_date = moment__WEBPACK_IMPORTED_MODULE_2___default()().format();
+              this.form.dob = "01.01.2005";
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, this);
+    }));
+
+    function mounted() {
+      return _mounted.apply(this, arguments);
+    }
+
+    return mounted;
+  }(),
+  data: function data() {
+    return {
+      persons: [],
+      ranks: [],
+      form: {
+        person_id: null,
+        father_id: null,
+        status: 'Active'
+      },
+      submiting: false
+    };
+  },
+  computed: {
+    males: function males() {
+      return this.persons.filter(function (p) {
+        return p.person_gender == 'male';
+      });
+    },
+    females: function females() {
+      return this.persons.filter(function (p) {
+        return p.person_gender == 'female';
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/admin/index.js":
 /*!*************************************!*\
   !*** ./resources/js/admin/index.js ***!
@@ -110968,6 +111058,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _batch__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./batch */ "./resources/js/admin/batch/index.js");
 /* harmony import */ var _schedule__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./schedule */ "./resources/js/admin/schedule/index.js");
 /* harmony import */ var _attendance__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./attendance */ "./resources/js/admin/attendance/index.js");
+/* harmony import */ var _forms_student__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./forms/student */ "./resources/js/admin/forms/student.js");
+
 
 
 
@@ -111751,11 +111843,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 Vue.component('student-form', {
@@ -111774,7 +111869,11 @@ Vue.component('student-form', {
             case 2:
               this.persons = _context.sent.data.data.data;
 
-            case 3:
+              if (this.form.person_id != null) {
+                jquery__WEBPACK_IMPORTED_MODULE_2___default()('#person_id').prop('disabled', true);
+              }
+
+            case 4:
             case "end":
               return _context.stop();
           }

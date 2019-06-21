@@ -27,6 +27,14 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     Route::get('/admin/admin-users/{adminUser}/resend-activation','Admin\AdminUsersController@resendActivationEmail')->name('admin/admin-users/resendActivationEmail');
 });
 
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
+    Route::get('/admin/forms/student', function () {
+        return view('forms.student');
+    });
+    Route::post('/admin/forms/student', 'Admin\FormsController@student');
+});
+
 /* Auto-generated profile routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
     Route::get('/admin/profile',                                'Admin\ProfileController@editProfile');

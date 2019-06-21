@@ -55,7 +55,7 @@
                                 <tr v-for="(item, index) in collection">
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.rank.rank_name }}</td>
-                                    <td>@{{ item.student.person.person_fname }} @{{ item.student.person.person_lname }}</td>
+                                    <td>@{{ item.student.full_name }}</td>
                                     <td>@{{ item.awarded_date | date }}</td>
                                     
                                     <td>

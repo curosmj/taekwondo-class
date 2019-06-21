@@ -1,9 +1,13 @@
 import AppForm from '../app-components/Form/AppForm';
+import $ from 'jquery';
 
 Vue.component('student-form', {
     mixins: [AppForm],
     mounted: async function () {
         this.persons = ((await axios.get('/admin/people')).data.data.data)
+        if (this.form.person_id != null) {
+            $('#person_id').prop('disabled', true);
+        }
     },
     data: function() {  
         return {

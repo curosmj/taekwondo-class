@@ -13,3 +13,4 @@ import './student-rank';
 import './batch';
 import './schedule';
 import './attendance';
+import './forms/student';
