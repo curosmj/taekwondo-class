@@ -34,6 +34,7 @@ class InvoiceController extends Controller
         );
 
         if ($request->ajax()) {
+            $data->load('person', 'invoiceItems');
             return ['data' => $data];
         }
 

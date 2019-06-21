@@ -23,7 +23,7 @@ class IndexStudent extends FormRequest
     public function rules()
     {
         return [
-            'orderBy' => 'in:id,dob,address,mother_id,father_id,status|nullable',
+            'orderBy' => 'in:id,person_id,dob,address,mother_id,father_id,status|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

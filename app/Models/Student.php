@@ -25,8 +25,8 @@ class Student extends Model
         "updated_at",
     
     ];
-    
-    
+
+    protected $with = ['person', 'mother', 'father'];
     
     protected $appends = ['resource_url', 'full_name'];
 
