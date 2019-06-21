@@ -3,7 +3,7 @@
 @section('title', trans('admin.invoice-item.actions.index'))
 
 @section('body')
-
+<?php $data->load('product', 'service') ?>
     <invoice-item-listing
         :data="{{ $data->toJson() }}"
         :url="'{{ url('admin/invoice-items') }}'"
@@ -48,6 +48,7 @@
                                     <th is='sortable' :column="'invoice_id'">{{ trans('admin.invoice-item.columns.invoice_id') }}</th>
                                     <th is='sortable' :column="'service_id'">{{ trans('admin.invoice-item.columns.service_id') }}</th>
                                     <th is='sortable' :column="'quantity'">{{ trans('admin.invoice-item.columns.quantity') }}</th>
+                                    <th is='sortable' :column="'quantity'">Amount</th>
                                     
                                     <th></th>
                                 </tr>
@@ -55,10 +56,11 @@
                             <tbody>
                                 <tr v-for="(item, index) in collection">
                                     <td>@{{ item.id }}</td>
-                                    <td>@{{ item.product_id }}</td>
+                                    <td>@{{ (item.product || {}).name }}</td>
                                     <td>@{{ item.invoice_id }}</td>
-                                    <td>@{{ item.service_id }}</td>
+                                    <td>@{{ (item.service || {}).service_name }}</td>
                                     <td>@{{ item.quantity }}</td>
+                                    <td>$@{{ item.quantity * ((item.product || item.service).selling_price || (item.product || item.service).service_selling_price) }}</td>
                                     
                                     <td>
                                         <div class="row no-gutters">

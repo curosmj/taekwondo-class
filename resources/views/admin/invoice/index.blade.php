@@ -4,6 +4,7 @@
 
 @section('body')
 
+<?php $data->load('person', 'invoiceItems'); ?>
     <invoice-listing
         :data="{{ $data->toJson() }}"
         :url="'{{ url('admin/invoices') }}'"
@@ -44,6 +45,7 @@
                             <thead>
                                 <tr>
                                     <th is='sortable' :column="'id'">{{ trans('admin.invoice.columns.id') }}</th>
+                                    <th is='sortable' :column="'invoice_items'">Items</th>
                                     <th is='sortable' :column="'amount'">{{ trans('admin.invoice.columns.amount') }}</th>
                                     <th is='sortable' :column="'person_id'">{{ trans('admin.invoice.columns.person_id') }}</th>
                                     
@@ -53,8 +55,9 @@
                             <tbody>
                                 <tr v-for="(item, index) in collection">
                                     <td>@{{ item.id }}</td>
-                                    <td>@{{ item.amount }}</td>
-                                    <td>@{{ item.person_id }}</td>
+                                    <td>@{{ item.invoice_items.length }}</td>
+                                    <td>$@{{ item.amount }}</td>
+                                    <td>@{{ (item.person || {}).full_name }}</td>
                                     
                                     <td>
                                         <div class="row no-gutters">

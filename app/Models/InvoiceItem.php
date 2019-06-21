@@ -34,5 +34,11 @@ class InvoiceItem extends Model
         return url('/admin/invoice-items/'.$this->getKey());
     }
 
+    public function product() {
+        return $this->belongsTo(Product::class);
+    } 
     
+    public function service() {
+        return $this->belongsTo(Service::class);
+    } 
 }

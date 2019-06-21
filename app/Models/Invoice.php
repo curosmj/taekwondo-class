@@ -33,5 +33,11 @@ class Invoice extends Model
         return url('/admin/invoices/'.$this->getKey());
     }
 
-    
+    public function invoiceItems() {
+        return $this->hasMany(InvoiceItem::class, 'invoice_id');
+    }
+
+    public function person() {
+        return $this->belongsTo(Person::class, 'person_id');
+    }
 }
