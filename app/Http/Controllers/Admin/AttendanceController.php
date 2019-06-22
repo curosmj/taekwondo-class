@@ -27,7 +27,7 @@ class AttendanceController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'batch_id', 'student_id', 'comment'],
+            ['id', 'batch_id', 'student_id', 'comment', 'created_at'],
 
             // set columns to searchIn
             ['id', 'comment']

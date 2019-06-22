@@ -58,9 +58,9 @@ class FormsController extends Controller
       ]);
     }
 
-    if ($request->filled('father_id')) {
-      $father_id = $request->get('father_id');
-    } else {
+    $father_id = $request->get('father_id');
+
+    if ($father_id == 'new') {
       $father = Person::create([
         'person_fname' => $request->get('father_fname'),
         'person_lname' => $request->get('father_lname'),
@@ -74,9 +74,9 @@ class FormsController extends Controller
       echo ' fahter created';
     }
 
-    if ($request->filled('mother_id')) {
-      $mother_id = $request->get('mother_id');
-    } else {
+    $mother_id = $request->get('mother_id');
+
+    if ($mother_id == 'new') {
       $mother = Person::create([
         'person_fname' => $request->get('mother_fname'),
         'person_lname' => $request->get('mother_lname'),

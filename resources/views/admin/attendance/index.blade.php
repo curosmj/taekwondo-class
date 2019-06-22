@@ -48,6 +48,7 @@
                                     <th is='sortable' :column="'batch_id'">{{ trans('admin.attendance.columns.batch_id') }}</th>
                                     <th is='sortable' :column="'student_id'">{{ trans('admin.attendance.columns.student_id') }}</th>
                                     <th is='sortable' :column="'comment'">{{ trans('admin.attendance.columns.comment') }}</th>
+                                    <th is='sortable' :column="'comment'">Timestamp</th>
                                     
                                     <th></th>
                                 </tr>
@@ -58,6 +59,7 @@
                                     <td>@{{ item.batch.batch_name }}</td>
                                     <td>@{{ item.student.person.full_name }}</td>
                                     <td>@{{ item.comment }}</td>
+                                    <td>@{{ item.created_at }}</td>
                                     
                                     <td>
                                         <div class="row no-gutters">

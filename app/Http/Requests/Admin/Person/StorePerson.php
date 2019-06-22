@@ -26,7 +26,7 @@ class StorePerson extends FormRequest
         return [
             'person_fname' => ['required', 'string'],
             'person_lname' => ['required', 'string'],
-            'mobile_no' => ['required', 'integer'],
+            'mobile_no' => ['required', 'integer', 'digits:10'],
             'email' => ['required', 'email', 'string'],
             'person_gender' => ['sometimes', 'string', 'in:male,female'],
             'address' => ['required', 'string'],

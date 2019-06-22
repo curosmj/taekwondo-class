@@ -20,7 +20,7 @@ class CreatePersonTable extends Migration
             $table->string('person_lname');
             $table->string('address');
             $table->string('postal_code');
-            $table->unsignedInteger('mobile_no');
+            $table->string('mobile_no');
             $table->string('email');
             $table->timestamps();
         });

@@ -24,7 +24,7 @@ class StudentRank extends Model
     
     ];
     
-    
+    protected $with = ['student', 'rank'];
     
     protected $appends = ['resource_url'];
 

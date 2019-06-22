@@ -21,6 +21,7 @@ class Batch extends Model
         "updated_at",
     
     ];
+    protected $with = ['rank'];
     
     
     

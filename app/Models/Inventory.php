@@ -22,6 +22,7 @@ class Inventory extends Model
     
     ];
     
+    protected $with = [];
     
     
     protected $appends = ['resource_url'];

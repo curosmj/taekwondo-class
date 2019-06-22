@@ -24,6 +24,7 @@ class Schedule extends Model
     
     ];
     
+    protected $with = ['batch'];
     
     
     protected $appends = ['resource_url'];

@@ -65,11 +65,12 @@
                     
                     <h5>Select father's record:</h5>
                     @component('select-element', ['field' => 'father_id', 'label' => 'Father'])
-                    <option v-bind:value="null">Add New</option>
+                    <option v-bind:value="null">None</option>
+                    <option v-bind:value="'new'">Add New</option>
                     <option v-for="p in males" v-bind:key="p.id" v-bind:value="p.id">@{{p.full_name}}</option>
                     @endcomponent
 
-                    <div v-if="form.father_id == null">
+                    <div v-if="form.father_id == 'new'">
                     <h5>Create New</h5>
 
                     
@@ -96,11 +97,12 @@
 
                     <h5>Select mother's record:</h5>
                     @component('select-element', ['field' => 'mother_id', 'label' => 'Mother'])
-                    <option v-bind:value="null">Add New</option>
+                    <option v-bind:value="null">None</option>
+                    <option v-bind:value="'new'">Add New</option>
                     <option v-for="p in females" v-bind:key="p.id" v-bind:value="p.id">@{{p.full_name}}</option>
                     @endcomponent
 
-                    <div v-if="form.mother_id == null">
+                    <div v-if="form.mother_id == 'new'">
                     <h5>Create New</h5>
 
                     @component('input-element', ['field' => 'mother_fname', 'label' => 'First Name'])

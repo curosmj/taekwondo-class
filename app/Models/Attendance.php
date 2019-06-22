@@ -22,6 +22,7 @@ class Attendance extends Model
         "updated_at",
     
     ];
+    protected $with = ['student', 'batch'];
     
     
     

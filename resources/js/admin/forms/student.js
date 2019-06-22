@@ -18,6 +18,7 @@ Vue.component('forms-student', {
         form: {
           person_id: null,
           father_id: null,
+          mother_id: null,
           status: 'Active'
         },
         submiting: false
