@@ -20,9 +20,11 @@ class FormsController extends Controller
       'rank_id' => ['required', 'integer', 'exists:rank,id'],
       'awarded_date' => ['required', 'date'],
     ]);
+    $father_id = $request->get('father_id');
+    $mother_id = $request->get('mother_id');
 
-    if (!$request->filled('father_id')) {
-      echo 'validating fahter';
+
+    if ($father_id == 'new') {
       $this->validate($request, [
         'father_fname' => ['required', 'string'],
         'father_lname' => ['required', 'string'],
@@ -33,8 +35,7 @@ class FormsController extends Controller
       ]);
     }
 
-    if (!$request->filled('mother_id')) {
-      echo 'validating mother';
+    if ($mother_id == 'new') {
       $this->validate($request, [
         'mother_fname' => ['required', 'string'],
         'mother_lname' => ['required', 'string'],
@@ -46,7 +47,6 @@ class FormsController extends Controller
     }
 
     if (!$request->filled('person_id')) {
-      echo 'validating person';
       $this->validate($request, [
         'person_fname' => ['required', 'string'],
         'person_lname' => ['required', 'string'],
@@ -57,8 +57,6 @@ class FormsController extends Controller
         'postal_code' => ['required', 'string'],
       ]);
     }
-
-    $father_id = $request->get('father_id');
 
     if ($father_id == 'new') {
       $father = Person::create([
@@ -71,10 +69,8 @@ class FormsController extends Controller
         'postal_code' => $request->get('father_postal_code')
       ]);
       $father_id = $father->id;
-      echo ' fahter created';
     }
 
-    $mother_id = $request->get('mother_id');
 
     if ($mother_id == 'new') {
       $mother = Person::create([
@@ -87,13 +83,11 @@ class FormsController extends Controller
         'postal_code' => $request->get('mother_postal_code')
       ]);
       $mother_id = $mother->id;
-      echo ' mother created';
     }
 
     if ($request->filled('person_id')) {
       $person_id = $request->get('person_id');
     } else {
-      echo ' stu per creating';
       $person = Person::create([
         'person_fname' => $request->get('person_fname'),
         'person_lname' => $request->get('person_lname'),
@@ -104,7 +98,6 @@ class FormsController extends Controller
         'postal_code' => $request->get('postal_code')
       ]);
       $person_id = $person->id;
-      echo ' stu per created';
     }
 
     $student = Student::create([
@@ -114,7 +107,6 @@ class FormsController extends Controller
       'dob' => $request->get('dob'),
       'status' => $request->get('status')
     ]);
-    echo ' stu created';
 
 
     $srank = StudentRank::create([
@@ -123,10 +115,7 @@ class FormsController extends Controller
       'awarded_date' => $request->get('awarded_date')
     ]);
 
-    echo ' stu rank created';
-
-
-    return 'done';
+    return $student;
   }
 
   public function invoice(Request $request)

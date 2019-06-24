@@ -111039,8 +111039,9 @@ Vue.component('forms-invoice', {
 
               case 2:
                 this.$notify('Invoice created!');
+                window.location.reload(true);
 
-              case 3:
+              case 4:
               case "end":
                 return _context2.stop();
             }

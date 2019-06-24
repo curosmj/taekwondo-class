@@ -32,6 +32,7 @@ Vue.component('forms-invoice', {
     async create () {
       ((await axios.post('/admin/forms/invoice', {items: this.items, person_id: this.form.person_id})))
       this.$notify('Invoice created!');
+      window.location.reload(true)
     },
     del (index) {
       this.items.splice(index, 1)
