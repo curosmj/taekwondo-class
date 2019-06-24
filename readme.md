@@ -4,11 +4,12 @@
 
 - PHP 7.1
 - MySQL 5.7
+- NodeJS 8 / 10 with NPM
 
 ## How to Install
 
-- First of all, download project from https://github.com/CurosMJ/taekwondo-class 
-- Run `composer install`
+- Download project from https://github.com/CurosMJ/taekwondo-class 
+- Run `composer install` (If not present, install from https://getcomposer.org/)
 - Run `npm install`
 - Edit `.env` file and set the database username and password (DB_USERNAME, DB_PASSWORD)
 - Run `php artisan migrate`
